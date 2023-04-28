@@ -32,3 +32,4 @@ def update_crypto_currencies():
                 'volume_24h': round(volume_24h, 4)
             }
         )
+
