@@ -134,3 +134,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+COINMARKETCAP_API_KEY = os.environ.get("COINMARKETCAP_API_KEY")
+COINMARKETCAP_API_URL = os.environ.get("COINMARKETCAP_API_URL")
