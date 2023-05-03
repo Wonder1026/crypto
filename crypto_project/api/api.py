@@ -5,9 +5,8 @@ from .models import CryptoCurrency
 from crypto_project.settings import COINMARKETCAP_API_KEY
 
 
-
 def update_crypto_currencies():
-    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
+    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=1000"
     headers = {
         "Accepts": "application/json",
         "X-CMC_PRO_API_KEY": COINMARKETCAP_API_KEY
@@ -32,4 +31,3 @@ def update_crypto_currencies():
                 'volume_24h': round(volume_24h, 4)
             }
         )
-
