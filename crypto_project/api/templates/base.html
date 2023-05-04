@@ -9,7 +9,12 @@
     <title>Cryptocurrencies</title>
 </head>
 <body>
-    <table>
+    <form action="" method="get">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit">Search</button>
+    </form>
+    <table class="my-table">
         <thead>
             <tr>
                 <th onclick="sortTable(0)">Name</th>
@@ -21,10 +26,12 @@
         <tbody>
             {% for currency in page %}
                 <tr>
-                    <td>{{ currency.name }}</td>
-                    <td>{{ currency.current_price }}</td>
-                    <td>{{ currency.price_change_24h }}</td>
-                    <td>{{ currency.volume_24h }}</td>
+                    <td>{{ currency.name }}
+                        <span class="symbol"> {{ currency.symbol }}</span>
+                    </td>
+                    <td>{{ currency.current_price }}$</td>
+                    <td>{{ currency.price_change_24h }}%</td>
+                    <td>{{ currency.volume_24h }}$</td>
                 </tr>
             {% endfor %}
         </tbody>

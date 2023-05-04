@@ -8,7 +8,11 @@ from django.core.paginator import Paginator
 
 
 def crypto_list(request):
+
     currencies = CryptoCurrency.objects.all()
+    query = request.GET.get('search')
+    if query:
+        currencies = currencies.filter(name__icontains=query) | currencies.filter(symbol__icontains=query)
     context = {"currencies": currencies}
     paginator = Paginator(currencies, 20)
     page_number = request.GET.get('page')

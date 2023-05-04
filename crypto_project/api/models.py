@@ -11,9 +11,6 @@ class CryptoCurrency(models.Model):
     def __str__(self):
         return f"{self.name} ({self.symbol})"
 
-    def __str__(self):
-        return self.symbol
-
     class Meta:
         ordering = ['symbol']
 
