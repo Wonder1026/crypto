@@ -1,12 +1,14 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cryptocurrencies</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+    <!-- Подключение файла sortTable.js -->
+    <script src="{% static 'js/sortTable.js' %}"></script>
 </head>
 <body>
     <form action="" method="get">
@@ -60,8 +62,8 @@
         {% endif %}
     </div>
 </div>
-    <!-- Скрипт сортировки по name/current_price/price_change_24h/volume_24h -->
-    <script src="{% static 'js/sortTable.js' %}">
-    </script>
+<!--    &lt;!&ndash; Скрипт сортировки по name/current_price/price_change_24h/volume_24h &ndash;&gt;-->
+<!--    <script src="{% static 'js/sortTable.js' %}">-->
+<!--    </script>-->
 </body>
 </html>

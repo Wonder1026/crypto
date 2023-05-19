@@ -2,11 +2,12 @@ import requests
 from django.conf import settings
 
 from .models import CryptoCurrency
-from crypto_project.settings import COINMARKETCAP_API_KEY
+from crypto_project.settings import COINMARKETCAP_API_KEY, COINMARKETCAP_API_URL
 
 
-def update_crypto_currencies():
-    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=1000"
+def update_crypto_currencies() -> None:
+    """request to the COINMARKETCAP and saving data to the database"""
+    url = COINMARKETCAP_API_URL
     headers = {
         "Accepts": "application/json",
         "X-CMC_PRO_API_KEY": COINMARKETCAP_API_KEY
@@ -26,8 +27,8 @@ def update_crypto_currencies():
             symbol=symbol,
             defaults={
                 'name': name,
-                'current_price': round(current_price, 4),
-                'price_change_24h': round(price_change_24h, 4),
-                'volume_24h': round(volume_24h, 4)
+                'current_price': round(current_price, 2),
+                'price_change_24h': round(price_change_24h, 2),
+                'volume_24h': round(volume_24h, 2)
             }
         )

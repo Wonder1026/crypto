@@ -1,5 +1,7 @@
 function sortTable(n) {
-  var table = document.getElementById("myTable");
+  var table = document.getElementsByClassName("my-table")[0];
+  if (!table) return;
+
   var rows = Array.from(table.rows);
   var sortedRows = rows.slice(1).sort(function(a, b) {
     var x = a.cells[n].textContent.toLowerCase();
